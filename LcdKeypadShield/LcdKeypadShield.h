@@ -25,9 +25,14 @@ class LcdKeypad : public LiquidCrystal
     LcdKeypad() : LiquidCrystal(8,9,4,5,6,7)
     {
       pinMode(A0,INPUT);
+      pinMode(10,OUTPUT);
       begin(16,2);
       clear();
     };
+		void setBrightness(byte value)
+		{
+		  analogWrite(10,value);
+		}
     byte keyPressed()
     {
       adc_value=analogRead(A0);

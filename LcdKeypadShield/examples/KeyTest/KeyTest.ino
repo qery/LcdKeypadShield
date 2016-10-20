@@ -3,15 +3,16 @@
 
 LcdKeypad lcdShield;
 
+int keycode=0;
+int count=0;
+byte bright=100;
+
 void setup()
 {
   lcdShield.clear();
   lcdShield.println("LCDKeypad Shield");
-  lcdShield.println("testing keys...");
+  lcdShield.setBrightness(bright);
 }
-
-int keycode=0;
-int count=0;
 
 void loop()
 {
@@ -28,9 +29,15 @@ void loop()
       case KEY_UP:
         lcdShield.print("Up     ");
         count++;
+        if (bright<250)
+        	bright+=5;
+        lcdShield.setBrightness(bright);
         break;
       case KEY_DOWN:
         lcdShield.print("Down   ");
+        if (bright>5)
+          bright-=5;
+        lcdShield.setBrightness(bright);
         count++;
         break;
       case KEY_LEFT:

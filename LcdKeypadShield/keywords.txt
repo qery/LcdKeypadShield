@@ -5,6 +5,7 @@
 LcdKeypadShield		KEYWORD1
 
 keyPressed		KEYWORD2
+setBrightness		KEYWORD2
 
 KEY_NONE		LITERAL1
 KEY_RIGHT		LITERAL1
